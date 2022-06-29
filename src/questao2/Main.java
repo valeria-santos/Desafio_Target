@@ -13,7 +13,7 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		int i = 0, numero;
-		int vetor[] = new int[100];
+		int vetor[] = new int[1000000];
 		boolean encontrou = false;
 
 		System.out.println("Informe um número: ");
@@ -21,22 +21,23 @@ public class Main {
 
 		vetor[0] = 0;
 		vetor[1] = 1;
-		for (i = 0; i < numero; i++) {
+		for (i = 0; i <= numero+5; i++) {
 			vetor[i + 2] = vetor[i] + vetor[i + 1];
 		}
-
-		for (i = 0; i < numero; i++) {
+		
 			while (encontrou == false) {
-				if (vetor[i] == numero) {
+				for (i = 0; i <= numero+5; i++) {
+					if (vetor[i] == numero) {
 					System.out.println("Pertence");
 					encontrou = true;
-				} else if (i == numero) {
-					System.out.println("Não pertence");
-					encontrou = true;
-				} else {
-					i++;
+					break;
+					} 
 				}
-			}
+				if (encontrou == false) {
+					System.out.println("Não pertence");
+					break;
+				}
+			
 		}
 	}
 
